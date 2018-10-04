@@ -97,7 +97,7 @@
             } else {
                 getEmails();
             }
-            call();
+            //call();
 
 
             WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -152,21 +152,24 @@
 
         }
 
-
-        public void call() {
-            String[] permissions;
-
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-                ActivityCompat.requestPermissions(this, permissions, 22);
-                return;
-            }
-            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Log.v("imei ", String.valueOf(telephonyManager.getImei()));
-            }
-
-        }
+//
+//        public void call() {
+//            String[] permissions;
+//
+//            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+//                permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
+//                ActivityCompat.requestPermissions(this, permissions, 22);
+//                return;
+//            }
+//            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                Log.v("imei ", String.valueOf(telephonyManager.getImei()));
+//            }else{
+//                Log.v("imei ", String.valueOf(telephonyManager.()));
+//
+//            }
+//
+//        }
 
         private void getEmails() {
             Pattern emailPattern = Patterns.EMAIL_ADDRESS;
