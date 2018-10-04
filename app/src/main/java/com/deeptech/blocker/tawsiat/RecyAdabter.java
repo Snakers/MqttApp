@@ -13,10 +13,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class RecyAdabter extends  RecyclerView.Adapter<RecyAdabter.MyViewHolder> {
-    private static Context context;
     ArrayList<SenderInfo> senderInfo;
+    Context context;
     public RecyAdabter(Context context, ArrayList<SenderInfo> senderInfo) {
-        this.context=context;
+        this.context= context;
         this.senderInfo=senderInfo;
         setHasStableIds(true);
     }
@@ -32,7 +32,7 @@ public class RecyAdabter extends  RecyclerView.Adapter<RecyAdabter.MyViewHolder>
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         SenderInfo sender = senderInfo.get(position);
-if(sender.isArabic()==false){
+if(!sender.isArabic()){
     holder.data.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
 
     holder.data.setText(sender.getData());
@@ -61,9 +61,9 @@ holder.date.setText(sender.getDate());
     private TextView name,data,date;
         public MyViewHolder(View itemView) {
             super(itemView);
-name=(TextView)itemView.findViewById(R.id.name);
-data=(TextView)itemView.findViewById(R.id.data);
-date=(TextView)itemView.findViewById(R.id.date);
+name= itemView.findViewById(R.id.name);
+data= itemView.findViewById(R.id.data);
+date= itemView.findViewById(R.id.date);
         }
     }
 
